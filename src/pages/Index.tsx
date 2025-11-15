@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      
+
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           {/* Main Content */}
@@ -21,14 +21,14 @@ const Index = () => {
               <Card className="p-6 md:p-8">
                 <h2 className="mb-4 text-2xl font-bold md:text-3xl">Introduction</h2>
                 <p className="mb-4 text-muted-foreground">
-                  This comprehensive guide will help you set up CUDA on Windows Subsystem for Linux 2 (WSL2) 
-                  to leverage your Nvidia GPU for machine learning tasks. By following these steps, you'll be 
+                  This comprehensive guide will help you set up CUDA on Windows Subsystem for Linux 2 (WSL2)
+                  to leverage your Nvidia GPU for machine learning tasks. By following these steps, you'll be
                   able to run ML frameworks like TensorFlow and PyTorch with GPU acceleration on Windows 11.
                 </p>
                 <Alert>
                   <AlertTriangle className="h-4 w-4" />
                   <AlertDescription>
-                    This guide assumes you have a compatible Nvidia GPU. Make sure to check Nvidia's official 
+                    This guide assumes you have a compatible Nvidia GPU. Make sure to check Nvidia's official
                     compatibility list before proceeding.
                   </AlertDescription>
                 </Alert>
@@ -37,31 +37,31 @@ const Index = () => {
 
             <Prerequisites />
 
-            <StepSection id="step-1" stepNumber={1} title="Enable WSL2">
+            <StepSection id="step-1" stepNumber={1} title="Windows Terminal">
               <p className="text-muted-foreground">
                 First, we need to enable Windows Subsystem for Linux 2. Open PowerShell as Administrator and run:
               </p>
               <CodeBlock code="wsl --install" />
               <ImagePlaceholder caption="PowerShell running WSL install command" />
               <p className="text-muted-foreground">
-                After installation completes, restart your computer. This will enable the necessary Windows features 
+                After installation completes, restart your computer. This will enable the necessary Windows features
                 for WSL2 to function properly.
               </p>
             </StepSection>
 
-            <StepSection id="step-2" stepNumber={2} title="Install Ubuntu on WSL2">
+            <StepSection id="step-2" stepNumber={2} title="Windows PowerShell (Latest & Greatest)">
               <p className="text-muted-foreground">
                 Once WSL2 is enabled, install Ubuntu from the Microsoft Store or via command line:
               </p>
               <CodeBlock code="wsl --install -d Ubuntu" />
               <ImagePlaceholder caption="Ubuntu installation in Microsoft Store" />
               <p className="text-muted-foreground">
-                Launch Ubuntu and complete the initial setup by creating a username and password. 
+                Launch Ubuntu and complete the initial setup by creating a username and password.
                 These credentials will be used for sudo commands.
               </p>
             </StepSection>
 
-            <StepSection id="step-3" stepNumber={3} title="Install CUDA Toolkit">
+            <StepSection id="step-3" stepNumber={3} title="Configure Windows Terminal">
               <p className="text-muted-foreground">
                 Now we'll install the CUDA Toolkit. First, update your package lists:
               </p>
@@ -69,13 +69,13 @@ const Index = () => {
               <p className="text-muted-foreground">
                 Add the CUDA repository and install the toolkit:
               </p>
-              <CodeBlock 
+              <CodeBlock
                 code={`wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb
 sudo dpkg -i cuda-keyring_1.0-1_all.deb
 sudo apt-get update
-sudo apt-get -y install cuda`} 
+sudo apt-get -y install cuda`}
               />
-              <ImagePlaceholder caption="CUDA Toolkit installation progress" />
+              <ImagePlaceholder caption="My PC configuration" />
             </StepSection>
 
             <StepSection id="step-4" stepNumber={4} title="Configure Environment Variables">
@@ -86,9 +86,9 @@ sudo apt-get -y install cuda`}
               <p className="text-muted-foreground">
                 Add the following lines at the end of the file:
               </p>
-              <CodeBlock 
+              <CodeBlock
                 code={`export PATH=/usr/local/cuda/bin:\${PATH}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`} 
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`}
               />
               <ImagePlaceholder caption="Editing .bashrc with environment variables" />
               <p className="text-muted-foreground">
@@ -97,7 +97,273 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`}
               <CodeBlock code="source ~/.bashrc" />
             </StepSection>
 
-            <StepSection id="step-5" stepNumber={5} title="Verify Installation">
+            <StepSection id="step-5" stepNumber={5} title="Install WSL2">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-6" stepNumber={6} title="Install Latest LTS Ubuntu via WSL2">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-7" stepNumber={7} title="Update & Upgrade">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-8" stepNumber={8} title="Install & Configure Miniconda">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-9" stepNumber={9} title="Install Jupyter & Ipykernel">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-10" stepNumber={10} title="Nvidia Driver">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-11" stepNumber={11} title="CUDA Toolkit">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-12" stepNumber={12} title="Install CUDA dependencies">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+            
+            <StepSection id="step-13" stepNumber={13} title="Add path to shell profile for CUDA">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-14" stepNumber={14} title="nvcc version">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-15" stepNumber={15} title="cuDNN SDK">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-16" stepNumber={16} title="Tensorflow GPU">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-17" stepNumber={17} title="Check Tensorflow GPU">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-18" stepNumber={18} title="PyTorch GPU">
+              <p className="text-muted-foreground">
+                Verify that CUDA is properly installed by checking the version:
+              </p>
+              <CodeBlock code="nvcc --version" />
+              <ImagePlaceholder caption="NVCC version output" />
+              <p className="text-muted-foreground">
+                Test GPU access with the following command:
+              </p>
+              <CodeBlock code="nvidia-smi" />
+              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                </AlertDescription>
+              </Alert>
+            </StepSection>
+
+            <StepSection id="step-19" stepNumber={19} title="Check PyTorch & Tensorflow GPU inside Jupyter Notebook">
               <p className="text-muted-foreground">
                 Verify that CUDA is properly installed by checking the version:
               </p>
@@ -137,7 +403,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`}
                   <div>
                     <h3 className="mb-2 font-semibold">GPU not detected</h3>
                     <p className="text-sm text-muted-foreground">
-                      Ensure you have the latest Nvidia drivers installed on Windows. 
+                      Ensure you have the latest Nvidia drivers installed on Windows.
                       WSL2 uses the Windows driver, so no separate driver installation is needed in Ubuntu.
                     </p>
                   </div>
