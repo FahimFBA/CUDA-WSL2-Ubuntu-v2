@@ -5,7 +5,7 @@ const requirements = [
   "Windows 11 operating system",
   "Nvidia GPU (GTX/RTX series)",
   "Administrator access to your PC",
-  "At least 20GB of free disk space",
+  "At least 30 GB of free disk space",
   "Internet connection for downloads",
   "Latest Nvidia drivers installed",
 ];
