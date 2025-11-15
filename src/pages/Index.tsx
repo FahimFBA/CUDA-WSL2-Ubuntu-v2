@@ -60,13 +60,20 @@ const Index = () => {
 
             <StepSection id="step-2" stepNumber={2} title="Windows PowerShell (Latest & Greatest)">
               <p className="text-muted-foreground">
-                Once WSL2 is enabled, install Ubuntu from the Microsoft Store or via command line:
+                Windows PowerShell is a modern and updated command line shell from Microsoft. You can use some Linux specific commands 
+                directly onto it. It comes with command suggestions built in. You can download it from the{" "}
+                <a
+                  href="https://github.com/PowerShell/PowerShell/releases/tag/v7.5.4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  official GitHub page
+                </a>.
               </p>
-              <CodeBlock code="wsl --install -d Ubuntu" />
-              <ImagePlaceholder caption="Ubuntu installation in Microsoft Store" />
+              <StepImage src="/windows-powershell.png" caption="Preview of Windows PowerShell on GitHub" />
               <p className="text-muted-foreground">
-                Launch Ubuntu and complete the initial setup by creating a username and password.
-                These credentials will be used for sudo commands.
+                Download the latest x64 installed and install it. After ensuring that it is installed properly, proceed to the next steps.
               </p>
             </StepSection>
 
