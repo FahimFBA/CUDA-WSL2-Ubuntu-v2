@@ -3,6 +3,7 @@ import { TableOfContents } from "@/components/TableOfContents";
 import { Prerequisites } from "@/components/Prerequisites";
 import { StepSection } from "@/components/StepSection";
 import { CodeBlock } from "@/components/CodeBlock";
+import { StepImage } from "@/components/StepImage";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Card } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -41,8 +42,7 @@ const Index = () => {
               <p className="text-muted-foreground">
                 First, we need to enable Windows Subsystem for Linux 2. Open PowerShell as Administrator and run:
               </p>
-              <CodeBlock code="wsl --install" />
-              <ImagePlaceholder caption="PowerShell running WSL install command" />
+              <StepImage src="/windows-terminal.png"caption="PowerShell running WSL install command"/>
               <p className="text-muted-foreground">
                 After installation completes, restart your computer. This will enable the necessary Windows features
                 for WSL2 to function properly.
