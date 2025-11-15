@@ -40,12 +40,21 @@ const Index = () => {
 
             <StepSection id="step-1" stepNumber={1} title="Windows Terminal">
               <p className="text-muted-foreground">
-                First, we need to enable Windows Subsystem for Linux 2. Open PowerShell as Administrator and run:
+                First, we need to ensure that we have Windows Terminal installed properly in our operating system.
+                It is the newest terminal application for users of command-line tools and shells like Command Prompt,
+                PowerShell, and WSL. You can download it from the{" "}
+                <a
+                  href="https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=BD&ocid=pdpshare"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  Microsoft Store
+                </a>.
               </p>
-              <StepImage src="/windows-terminal.png"caption="PowerShell running WSL install command"/>
+              <StepImage src="/windows-terminal.png" caption="Preview of Windows Terminal on Windows 11" />
               <p className="text-muted-foreground">
-                After installation completes, restart your computer. This will enable the necessary Windows features
-                for WSL2 to function properly.
+                After ensuring that it is installed properly, proceed to the next steps.
               </p>
             </StepSection>
 
@@ -248,7 +257,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`}
                 </AlertDescription>
               </Alert>
             </StepSection>
-            
+
             <StepSection id="step-13" stepNumber={13} title="Add path to shell profile for CUDA">
               <p className="text-muted-foreground">
                 Verify that CUDA is properly installed by checking the version:
