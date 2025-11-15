@@ -7,6 +7,7 @@ import { StepImage } from "@/components/StepImage";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Card } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption } from "@/components/ui/table";
 import { Github, AlertTriangle } from "lucide-react";
 
 const Index = () => {
@@ -109,23 +110,47 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-4" stepNumber={4} title="Configure Environment Variables">
+            <StepSection id="step-4" stepNumber={4} title="Configuration of my computer">
               <p className="text-muted-foreground">
-                Add CUDA to your PATH by editing your .bashrc file:
+                I think that it's better to let you know my current computer's configuration so that you can have a clear idea about which setup is getting used to test this guide.
+                Here are the details:
               </p>
-              <CodeBlock code="nano ~/.bashrc" />
-              <p className="text-muted-foreground">
-                Add the following lines at the end of the file:
+
+              <div className="mt-4">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[200px]">Component</TableHead>
+                      <TableHead>Specification</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="font-medium">Processor</TableCell>
+                      <TableCell>AMD Ryzen 7 7700 8-Core Processor (8 Core 16 Threads)</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">RAM</TableCell>
+                      <TableCell>64GB DDR5 6000MHz</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Storage</TableCell>
+                      <TableCell>1 TB Samsung 980 NVMe SSD, 4 TB HDD, 2 TB SATA SSD</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">GPU</TableCell>
+                      <TableCell>NVIDIA RTX 3060 12GB GDDR6</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">Operating System</TableCell>
+                      <TableCell>Windows 11 Pro Version 25H2</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
+              <p className="text-muted-foreground mt-4">
+                Now that you have an idea about my computer's configuration, we can proceed to the next steps.
               </p>
-              <CodeBlock
-                code={`export PATH=/usr/local/cuda/bin:\${PATH}
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}`}
-              />
-              <ImagePlaceholder caption="Editing .bashrc with environment variables" />
-              <p className="text-muted-foreground">
-                Save the file and reload your bash configuration:
-              </p>
-              <CodeBlock code="source ~/.bashrc" />
             </StepSection>
 
             <StepSection id="step-5" stepNumber={5} title="Install WSL2">
