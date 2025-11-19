@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
+import { title } from "process";
 
 const sections = [
   { id: "prerequisites", title: "Prerequisites" },
@@ -7,21 +8,22 @@ const sections = [
   { id: "step-2", title: "Step 2: Windows PowerShell (Latest & Greatest)" },
   { id: "step-3", title: "Step 3: Configure Windows Terminal" },
   { id: "step-4", title: "Step 4: My PC configuration" },
-  { id: "step-5", title: "Step 5: Install WSL2" },
-  { id: "step-6", title: "Step 6: Install Latest LTS Ubuntu via WSL2" },
-  { id: "step-7", title: "Step 7: Update & Upgrade" },
-  { id: "step-8", title: "Step 8: Install & Configure Miniconda" },
-  { id: "step-9", title: "Step 9: Install Jupyter & Ipykernel" },
-  { id: "step-10", title: "Step 10: Nvidia Driver" },
-  { id: "step-11", title: "Step 11: CUDA Toolkit" },
-  { id: "step-12", title: "Step 12: Install CUDA dependencies" },
-  { id: "step-13", title: "Step 13: Add path to shell profile for CUDA" },
-  { id: "step-14", title: "Step 14: nvcc version" },
-  { id: "step-15", title: "Step 15: cuDNN SDK" },
-  { id: "step-16", title: "Step 16: Tensorflow GPU" },
-  { id: "step-17", title: "Step 17: Check Tensorflow GPU" },
-  { id: "step-18", title: "Step 18: PyTorch GPU" },
-  { id: "step-19", title: "Step 19: Check PyTorch & Tensorflow GPU inside Jupyter Notebook" },
+  { id: "step-5", title: "Step 5: CPU Virtualization" },
+  { id: "step-6", title: "Step 5: Install WSL2" },
+  { id: "step-7", title: "Step 6: Install Latest LTS Ubuntu via WSL2" },
+  { id: "step-8", title: "Step 7: Update & Upgrade" },
+  { id: "step-9", title: "Step 8: Install & Configure Miniconda" },
+  { id: "step-10", title: "Step 9: Install Jupyter & Ipykernel" },
+  { id: "step-11", title: "Step 10: Nvidia Driver" },
+  { id: "step-12", title: "Step 11: CUDA Toolkit" },
+  { id: "step-13", title: "Step 12: Install CUDA dependencies" },
+  { id: "step-14", title: "Step 13: Add path to shell profile for CUDA" },
+  { id: "step-15", title: "Step 14: nvcc version" },
+  { id: "step-16", title: "Step 15: cuDNN SDK" },
+  { id: "step-17", title: "Step 16: Tensorflow GPU" },
+  { id: "step-18", title: "Step 17: Check Tensorflow GPU" },
+  { id: "step-19", title: "Step 18: PyTorch GPU" },
+  { id: "step-20", title: "Step 19: Check PyTorch & Tensorflow GPU inside Jupyter Notebook" },
   { id: "troubleshooting", title: "Troubleshooting" },
 ];
 
