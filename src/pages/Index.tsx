@@ -171,21 +171,20 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-6" stepNumber={6} title="Install Latest LTS Ubuntu via WSL2">
+            <StepSection id="step-6" stepNumber={6} title="Install WSL2">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Open the Windows Terminal or Windows PowerShell as an administrator. Run the following command to install WSL2 along with the latest Ubuntu LTS distribution:
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
+              <CodeBlock code="wsl.exe --install" />
               <p className="text-muted-foreground">
-                Test GPU access with the following command:
+                It will install Windows Subsystem for Linux 2 (WSL2). After the installation is complete, you will be prompted to restart your computer. 
+                Do so to finalize the installation.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <StepImage src="/install-wsl2.png" caption="Preview of WSL installation in Windows PowerShell" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  If you encounter any issues during installation, refer to the <a href="https://learn.microsoft.com/en-us/windows/wsl/troubleshooting"><u>official Microsoft documentation</u></a> for troubleshooting WSL installation problems.
                 </AlertDescription>
               </Alert>
             </StepSection>
