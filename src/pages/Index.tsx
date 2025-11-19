@@ -153,21 +153,20 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-5" stepNumber={5} title="Install WSL2">
+            <StepSection id="step-5" stepNumber={5} title="CPU Virtualization">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                As we are going to use the WSL2, we must ensure that the CPU virtualization is enabled.
+                To check whether virtualization is enabled or not from Windows, then simply open the <b>Windows Task Manager</b>.
+                Go to the <b>Performance</b> tab and select <b>CPU</b> from the left sidebar. On the bottom right corner, you will see the <b>Virtualization</b> status.
+                If it shows "Enabled", then you are good to go. If it shows "Disabled", then you need to enable it from BIOS.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <StepImage src="/check-cpu-virtualization.png" caption="Preview of Virtualization enabled status in Windows Task Manager" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  You have to ensure that CPU Virtualization is enabled in your BIOS settings. Different manufacturers have different ways to access BIOS.
+                  Usually, you can access BIOS by pressing the <b>Delete</b> or <b>F2</b> key during the boot process. Once in BIOS, look for settings related to
+                  "Virtualization Technology" or "Intel VT-x"/"AMD-V" and make sure it is enabled. Save the changes and exit BIOS.
                 </AlertDescription>
               </Alert>
             </StepSection>
