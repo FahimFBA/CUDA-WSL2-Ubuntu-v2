@@ -214,21 +214,20 @@ const Index = () => {
               <StepImage src="/memory-and-processor-config-wsl.png" caption="Preview of WSL GUI settings window (Memory & Processor)" />
             </StepSection>
 
-            <StepSection id="step-8" stepNumber={8} title="Install & Configure Miniconda">
+            <StepSection id="step-8" stepNumber={8} title="Step 8: Update & Upgrade Ubuntu Packages">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Open your Ubuntu terminal from Windows Terminal. First, we need to update and upgrade the existing packages to their latest versions.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <p>To update the Ubuntu system, simply use the following command:</p>
+              <CodeBlock code="sudo apt update -y" />
+              <StepImage src="/ubuntu-apt-update.png" caption="Preview of apt update command in Ubuntu terminal" />
+              <p>To upgrade all the packages at once, simply use the following command:</p>
+              <CodeBlock code="sudo apt upgrade -y" />
+              <StepImage src="/ubuntu-apt-upgrade.png" caption="Preview of apt upgrade command in Ubuntu terminal" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  Make sure that you have a stable internet connection during the update and upgrade process to avoid any interruptions.
                 </AlertDescription>
               </Alert>
             </StepSection>

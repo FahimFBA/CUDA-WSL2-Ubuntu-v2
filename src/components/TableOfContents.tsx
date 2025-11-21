@@ -11,7 +11,7 @@ const sections = [
   { id: "step-5", title: "Step 5: CPU Virtualization" },
   { id: "step-6", title: "Step 6: Install WSL2" },
   { id: "step-7", title: "Step 7: Install Latest LTS Ubuntu via WSL2" },
-  { id: "step-8", title: "Step 8: Update & Upgrade" },
+  { id: "step-8", title: "Step 8: Update & Upgrade Ubuntu Package" },
   { id: "step-9", title: "Step 9: Install & Configure Miniconda" },
   { id: "step-10", title: "Step 10: Install Jupyter & Ipykernel" },
   { id: "step-11", title: "Step 11: Nvidia Driver" },
