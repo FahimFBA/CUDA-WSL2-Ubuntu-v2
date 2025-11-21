@@ -8,7 +8,7 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Card } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableFooter, TableCaption } from "@/components/ui/table";
-import { Github, AlertTriangle } from "lucide-react";
+import { Github, AlertTriangle, Code } from "lucide-react";
 
 const Index = () => {
   return (
@@ -177,7 +177,7 @@ const Index = () => {
               </p>
               <CodeBlock code="wsl.exe --install" />
               <p className="text-muted-foreground">
-                It will install Windows Subsystem for Linux 2 (WSL2). After the installation is complete, you will be prompted to restart your computer. 
+                It will install Windows Subsystem for Linux 2 (WSL2). After the installation is complete, you will be prompted to restart your computer.
                 Do so to finalize the installation.
               </p>
               <StepImage src="/install-wsl2.png" caption="Preview of WSL installation in Windows PowerShell" />
@@ -232,21 +232,41 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-9" stepNumber={9} title="Install Jupyter & Ipykernel">
+            <StepSection id="step-9" stepNumber={9} title="Step 9: Install and Configure Miniconda">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                In Machine Learning, we need to manage multiple environments with different package versions.
+                Conda is a popular package and environment management system that makes it easy to create and manage isolated environments for different projects.
+                We will install Miniconda, a minimal installer for Conda, to manage our Python environments.
+                However, if you prefer Anaconda, you can install it instead.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
+              <p>Go to the official website of Miniconda. Currently the Miniconda installer is inside Anaconda. The link is <a href="https://www.anaconda.com/docs/getting-started/miniconda/install"><u>here</u></a>.
+                If the official website gets updated, you can always search for "Miniconda installer" on Google to find the latest version. Also, you can create an issue in the official GitHub repository of this project to notify me about it.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <StepImage src="/miniconda-official-website.png" caption="Preview of Miniconda official website" />
+              <p>As we are installing it inside WSL, we have to select the <b>macOS/Linux Installation</b>.
+                Then select <b>Linux Terminal Installer</b> and choose <b>Linux x86</b> for downloading the installer.
+              </p>
+              <CodeBlock code="wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" />
+              <p>It will download the installer to your WSL directory. Then use the following command to install it properly.</p>
+              <CodeBlock code="bash ~/Miniconda3-latest-Linux-x86_64.sh" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  Make sure that you are in the correct directory where the installer is downloaded. If you downloaded it to a different location, adjust the path accordingly.
+                  Also, replace <b>bash</b> with <b>zsh</b> or <b>sh</b> if you are using a different shell.
+                </AlertDescription>
+              </Alert>
+              <StepImage src="/miniconda-installation-wsl.png" caption="Preview of Miniconda installation in WSL Ubuntu terminal" />
+              <p>Make sure to choose the initialization option properly. I prefer to keep the conda env active whenever I open a new shell. Therefore, I chose "Yes".</p>
+              <StepImage src="/conda-initialization-option.png" caption="Preview of Miniconda initialization option during installation" />
+              <p>Make sure that the installation succeed without any error.</p>
+              <StepImage src="/miniconda-installation-complete.png" caption="Preview of successful Miniconda installation in WSL Ubuntu terminal" />
+              <p>For the changes to take effect, you can close and reopen the current shell. However, you can also do that without closing and reopening the shell by applying the command below.</p>
+              <CodeBlock code="source ~/.bashrc" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  If you are using a different shell like zsh or fish, make sure to source the appropriate configuration file (e.g., ~/.zshrc for zsh).
                 </AlertDescription>
               </Alert>
             </StepSection>
@@ -495,7 +515,7 @@ const Index = () => {
           </p>
         </div>
       </footer>
-    </div>
+    </div >
   );
 };
 
