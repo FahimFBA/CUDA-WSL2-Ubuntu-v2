@@ -271,23 +271,33 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-10" stepNumber={10} title="Nvidia Driver">
+            <StepSection id="step-10" stepNumber={10} title="Step 10: Install Jupyter & Ipykernel">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                I prefer to use Jupyter Notebook for running my machine learning experiments.
+                It provides an interactive environment for coding and data analysis.
+                We will install Jupyter Notebook and Ipykernel to run Jupyter notebooks in our conda environment.
+                We will do that in all conda environments starting with the <b>base</b> environment.
+                It also help us to keep the conda environment kernel inside Jupyter Notebook.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
+              <p>First, make sure that you are in the base conda environment. You will see <b>(base)</b> in the left side of the terminal.</p>
+              <StepImage src="/conda-base-environment.png" caption="Preview of conda base environment in WSL Ubuntu terminal" />
+              <p>Now install Jupyter and Ipykernel both by applying the following command.</p>
+              <CodeBlock code="conda install jupyter ipykernel -y" />
+              <p>Make sure that you accepts the terms of service of Conda.</p>
+              <StepImage src="/jupyter-ipykernel-installation.png" caption="Preview of Jupyter and Ipykernel installation in WSL Ubuntu terminal" />
               <p className="text-muted-foreground">
-                Test GPU access with the following command:
+                Now, I will create a separate conda environment for TensorFlow and PyTorch GPU both. 
+                You can directly install them in the base environment or in any other environment as per your preference.
+                I am not specifying any specific python version while creating the environment. It will automatically install the latest stable version of Python.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
+              <CodeBlock code="conda create -name ml -y" />
+              <StepImage src="/conda-create-ml-environment.png" caption="Preview of creating a new conda environment named 'ml' in WSL Ubuntu terminal" />
+              <p>To activate any specific conda environment, you have to use the following command.</p>
+              <CodeBlock code="conda activate <conda-env-name>" />
+              <p>For example, if I want to activate my newly created <b>ml</b> environment, I will use the following command.</p>
+              <CodeBlock code="conda activate ml" />
+              <p>If you are not sure which conda environments are installed in your system, you can check all available and installed conda environment in your system by running the following command.</p>
+              <CodeBlock code="conda env list" />
             </StepSection>
 
             <StepSection id="step-11" stepNumber={11} title="CUDA Toolkit">
