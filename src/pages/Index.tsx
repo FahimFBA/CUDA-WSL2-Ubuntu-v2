@@ -189,23 +189,29 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-7" stepNumber={7} title="Update & Upgrade">
+            <StepSection id="step-7" stepNumber={7} title="Step 7: Install Latest LTS Ubuntu via WSL2">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Open the Windows Terminal or Windows PowerShell again with the administrator privileges.
+
+                If you want to check the available Linux distributions to install via WSL, run the following command:
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
+              <CodeBlock code="wsl.exe --list --online" />
+              <StepImage src="/wsl-available-distros.png" caption="Preview of available WSL distributions in Windows PowerShell" />
               <p className="text-muted-foreground">
-                Test GPU access with the following command:
+                For installing any specific distribution, run the following command:
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
+              <CodeBlock code="wsl.exe --install <DistroName>" />
+              <p>
+                We are going to install the latest LTS Ubuntu distribution. As of now, the latest LTS version is Ubuntu 24.04. However, I prefer to install the `Ubuntu` directly
+                as it always points to the latest LTS version. So, run the following command:
+              </p>
+              <CodeBlock code="wsl.exe --install Ubuntu" />
+              <p>You need to give it a default user account name. For me, I am going with `fahim`.</p>
+              <StepImage src="/wsl-ubuntu-install.png" caption="Preview of Ubuntu installation in Windows PowerShell" />
+              <p>It also comes with a nice GUI management tool for WSL.</p>
+              <StepImage src="/wsl-gui-config.png" caption="Preview of WSL GUI management tool" />
+              <p>You can configure a lot of stuff in it including restricting core, RAM, disk space and a lot of Specification from the settings GUI window.</p>
+              <StepImage src="/memory-and-processor-config-wsl.png" caption="Preview of WSL GUI settings window (Memory & Processor)" />
             </StepSection>
 
             <StepSection id="step-8" stepNumber={8} title="Install & Configure Miniconda">
