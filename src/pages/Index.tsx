@@ -329,7 +329,7 @@ const Index = () => {
               </p>
               <CodeBlock code="sudo apt install gcc g++ build-essential" />
               <p>
-                After installing the dependencies, you can proceed to verify the CUDA installation if you got any issues earlier. 
+                After installing the dependencies, you can proceed to verify the CUDA installation if you got any issues earlier.
               </p>
             </StepSection>
 
@@ -354,8 +354,8 @@ const Index = () => {
               <StepImage src="/nvidia-cuda-toolkit-official-website.png" caption="Preview of Nvidia CUDA Toolkit official website" />
               <p>As Tensorflow GPU is asking exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
 
-              <p>In the CUDA Toolkit download page, make sure to choose the operating system as <b>Linux</b>, Architecture as <b>x86_64</b>, 
-              Distribution as <b>WSL-Ubuntu</b>, Version as <b>2.0</b> and the Installer type as <b>runfile(local)</b>.</p>
+              <p>In the CUDA Toolkit download page, make sure to choose the operating system as <b>Linux</b>, Architecture as <b>x86_64</b>,
+                Distribution as <b>WSL-Ubuntu</b>, Version as <b>2.0</b> and the Installer type as <b>runfile(local)</b>.</p>
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
@@ -369,31 +369,35 @@ const Index = () => {
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the CUDA Toolkit properly. If you face 
+                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the CUDA Toolkit properly. If you face
                   any issues related to CUDA dependency, then quickly go through step 12 where I have explained how to install the CUDA dependencies properly.
                 </AlertDescription>
               </Alert>
             </StepSection>
 
-            
-
-            <StepSection id="step-14" stepNumber={14} title="nvcc version">
+            <StepSection id="step-14" stepNumber={14} title="Step 14: Add path to shell profile for CUDA">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                After installing CUDA Toolkit, we need to add the CUDA binaries to our shell profile for easy access.
+                This will allow us to run CUDA commands from any directory in the terminal.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  Depending on the shell you are using (bash, zsh, etc.), you need to add the CUDA path to the appropriate configuration file.
+                  Make sure to replace <b>.bashrc</b> with <b>.zshrc</b> or other configuration files if you are using a different shell.
                 </AlertDescription>
               </Alert>
+              <p>To add the CUDA binary path, follow the command below.</p>
+              <CodeBlock code="echo 'export PATH=/usr/local/cuda-12.3/bin:$PATH' >> ~/.bashrc" />
+              <p>You have to use the updated path where you installed it. Your terminal will show it after installing the CUDA.</p>
+              <StepImage src="/cuda-installation-path.png" caption="Preview of CUDA installation path in WSL Ubuntu terminal" />
+              <p>Now, you need to add the path inside the Library path. Just use the exact path where you installed CUDA. Your temrinal will list the path properly.</p>
+              <CodeBlock code="echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.3/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc" />
+              <StepImage src="/cuda-library-path.png" caption="Preview of CUDA library path in WSL Ubuntu terminal" />
+              <p className="text-muted-foreground">
+                After adding those paths, you need to source the shell profile for the changes to take effect. You can do that by running the following command.
+              </p>
+              <CodeBlock code="source ~/.bashrc" />
             </StepSection>
 
             <StepSection id="step-15" stepNumber={15} title="cuDNN SDK">
