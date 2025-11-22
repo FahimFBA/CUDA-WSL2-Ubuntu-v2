@@ -427,8 +427,8 @@ const Index = () => {
                 </a>.
               </p>
               <p>Select the Operating System as <b>Linux</b>, Architecture as <b>x86_64</b>, Distribution as <b>Ubuntu</b>,
-              Version as <b>24.04</b>, Installer Type as <b>deb (local)</b>, Configuration as <b>FULL</b>. After selecting those, it will give you the download commands.
-              You have to apply them sequentially. </p>
+                Version as <b>24.04</b>, Installer Type as <b>deb (local)</b>, Configuration as <b>FULL</b>. After selecting those, it will give you the download commands.
+                You have to apply them sequentially. </p>
               <StepImage src="/cudnn-download-commands.png" caption="Preview of cuDNN download commands for Ubuntu 24.04" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
@@ -439,23 +439,25 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-17" stepNumber={17} title="Check Tensorflow GPU">
+            <StepSection id="step-17" stepNumber={17} title="Step 17: Tensorflow GPU">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Now, we are going to install TensorFlow GPU in our conda environment. Make sure that you have activated the conda environment where you want to install it.
+                For me, I am going to install it in my previously created <b>ml</b> environment.
+                To activate it, I will use the following command:
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <CodeBlock code="conda activate ml" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  Make sure that you have activated the correct conda environment before installing TensorFlow GPU. You will see the environment name in the terminal prompt.
                 </AlertDescription>
               </Alert>
+              <StepImage src="/conda-activate-ml-environment.png" caption="Preview of activating 'ml' conda environment in WSL Ubuntu terminal" />
+              <p>I will install ipykernel and jupyter in this new environment.</p>
+              <CodeBlock code="conda install jupyter ipykernel -y" />
+              <p>Now, to install Tensorflow GPU, I will simply use the following command.</p>
+              <CodeBlock code="pip install tensorflow[and-cuda]" />
+              <p>It might take a couple of minutes depending on the internet speed you have. Please have patience and wait for it to finish the installation.</p>
             </StepSection>
 
             <StepSection id="step-18" stepNumber={18} title="PyTorch GPU">
