@@ -411,21 +411,30 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-16" stepNumber={16} title="Tensorflow GPU">
+            <StepSection id="step-16" stepNumber={16} title="Step 16: cuDNN SDK">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Download and install the cuDNN SDK for CUDA from the official Nvidia website. Here's an interesting thing about cuDNN:
+                Even though Tensorflow GPU suggests a specific cuDNN version, it is often compatible with multiple versions.
+                Therefore, I recommend downloading the latest cuDNN version that is compatible with your installed CUDA version.
+                You can find the cuDNN download page{" "}
+                <a
+                  href="https://developer.nvidia.com/cudnn-downloads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  here
+                </a>.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <p>Select the Operating System as <b>Linux</b>, Architecture as <b>x86_64</b>, Distribution as <b>Ubuntu</b>,
+              Version as <b>24.04</b>, Installer Type as <b>deb (local)</b>, Configuration as <b>FULL</b>. After selecting those, it will give you the download commands.
+              You have to apply them sequentially. </p>
+              <StepImage src="/cudnn-download-commands.png" caption="Preview of cuDNN download commands for Ubuntu 24.04" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the cuDNN SDK properly. If you face
+                  any issues related to CUDA dependency, then quickly go through step 12 where I have explained how to install the CUDA dependencies properly.
                 </AlertDescription>
               </Alert>
             </StepSection>
