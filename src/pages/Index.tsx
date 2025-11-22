@@ -472,23 +472,35 @@ const Index = () => {
               <StepImage src="/tensorflow-gpu-check.png" caption="Preview of TensorFlow GPU check in WSL Ubuntu terminal" />
             </StepSection>
 
-            <StepSection id="step-19" stepNumber={19} title="Check PyTorch & Tensorflow GPU inside Jupyter Notebook">
+            <StepSection id="step-19" stepNumber={19} title="Step 19: PyTorch GPU">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Now, we are going to install PyTorch GPU in our conda environment. Make sure that you have activated the conda environment where you want to install it.
+                For me, I am going to install it in my previously created <b>ml</b> environment.
+                To activate it, I will use the following command:
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
+              <CodeBlock code="conda activate ml" />
+              <p>
+                Installing PyTorch GPU is very straightforward. You can use the official PyTorch installation command generator{" "}
+                <a
+                  href="https://pytorch.org/get-started/locally/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  here
+                </a>.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
+              <p>
+                Make sure to select PyTorch Build as the latest <b>Stable</b> one, Your OS as <b>Linux</b>, Package as <b>Pip</b>, Language as <b>Python</b>.
+                For the Compute Platform, select the CUDA version that matches your installed CUDA Toolkit. For me, it is <b>CUDA 12.3</b>. But, if you
+                can't find the exact one then chose the closest. As CUDA 12.3 is not available for me now, I am choosing <b>CUDA 12.6</b>.
+                After selecting those, it will give you the installation command. You have to apply it in your WSL Ubuntu terminal.
+              </p>
+              <StepImage src="/pytorch-installation-command-generator.png" caption="Preview of PyTorch installation command generator" />
+              <p>
+                It might take a couple of minutes depending on the internet speed you have. Please have patience and wait for it to finish the installation.
+              </p>
+              <StepImage src="/pytorch-gpu-installation.png" caption="Preview of PyTorch GPU installation in WSL Ubuntu terminal" />
             </StepSection>
 
             <section id="troubleshooting" className="scroll-mt-8">

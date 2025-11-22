@@ -23,7 +23,8 @@ const sections = [
   { id: "step-17", title: "Step 17: Tensorflow GPU" },
   { id: "step-18", title: "Step 18: Check Tensorflow GPU" },
   { id: "step-19", title: "Step 19: PyTorch GPU" },
-  { id: "step-20", title: "Step 20: Check PyTorch & Tensorflow GPU inside Jupyter Notebook" },
+  { id: "step-20", title: "Step 20: Check PyTorch GPU" },
+  { id: "step-21", title: "Step 21: Check PyTorch & Tensorflow GPU inside Jupyter Notebook" },
   { id: "troubleshooting", title: "Troubleshooting" },
 ];
 
