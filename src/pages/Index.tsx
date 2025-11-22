@@ -460,23 +460,16 @@ const Index = () => {
               <p>It might take a couple of minutes depending on the internet speed you have. Please have patience and wait for it to finish the installation.</p>
             </StepSection>
 
-            <StepSection id="step-18" stepNumber={18} title="PyTorch GPU">
+            <StepSection id="step-18" stepNumber={18} title="Step 18: Check Tensorflow GPU">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                After installing TensorFlow GPU, we need to verify that it is working properly with GPU support.
+                Open a Python shell in your Ubuntu terminal and run the following commands:
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
+              <CodeBlock code={`python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"`} />
+              <p>
+                If the output shows a list of available GPU devices, then TensorFlow GPU is successfully installed and working properly.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
+              <StepImage src="/tensorflow-gpu-check.png" caption="Preview of TensorFlow GPU check in WSL Ubuntu terminal" />
             </StepSection>
 
             <StepSection id="step-19" stepNumber={19} title="Check PyTorch & Tensorflow GPU inside Jupyter Notebook">
