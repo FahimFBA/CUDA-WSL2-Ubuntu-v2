@@ -400,23 +400,15 @@ const Index = () => {
               <CodeBlock code="source ~/.bashrc" />
             </StepSection>
 
-            <StepSection id="step-15" stepNumber={15} title="cuDNN SDK">
+            <StepSection id="step-15" stepNumber={15} title="Step 15: nvcc version">
               <p className="text-muted-foreground">
                 Verify that CUDA is properly installed by checking the version:
               </p>
               <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
+              <StepImage src="/nvcc-version-check.png" caption="Preview of nvcc version check in WSL Ubuntu terminal" />
+              <p>
+                If the output shows the correct CUDA version, then you have successfully installed CUDA Toolkit in your WSL2 Ubuntu environment.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
             </StepSection>
 
             <StepSection id="step-16" stepNumber={16} title="Tensorflow GPU">
