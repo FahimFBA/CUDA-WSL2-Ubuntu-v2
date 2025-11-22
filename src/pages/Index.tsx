@@ -322,7 +322,18 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-12" stepNumber={12} title="Step 12: CUDA Toolkit">
+            <StepSection id="step-12" stepNumber={13} title="Step 12: Install CUDA dependencies">
+              <p className="text-muted-foreground">
+                You might face some issues if you don't have the CUDA dependencies installed properly.
+                Therefore, it is recommended to install the required dependencies before proceeding further.
+              </p>
+              <CodeBlock code="sudo apt install gcc g++ build-essential" />
+              <p>
+                After installing the dependencies, you can proceed to verify the CUDA installation if you got any issues earlier. 
+              </p>
+            </StepSection>
+
+            <StepSection id="step-13" stepNumber={12} title="Step 13: CUDA Toolkit">
               <p className="text-muted-foreground">
                 Tensorflow GPU is very picky about the CUDA version. Therefore, we need to install a specific version of CUDA Toolkit that is compatible with the TensorFlow version we are going to install.
                 To understand exactly which CUDA version is compatible with which TensorFlow version, you can check the official TensorFlow GPU support matrix{" "}
@@ -352,34 +363,19 @@ const Index = () => {
                 </AlertDescription>
               </Alert>
               <StepImage src="/cuda-toolkit-12-3-wsl-ubuntu.png" caption="Preview of CUDA Toolkit 12.3 download page for WSL-Ubuntu" />
-              <p>After selecting those, it will give you the download commands. You have to apply them sequentially.</p>
+              <p>After selecting those, it will give you the download commands. You have to apply them sequentially. Make sure that you <b>don't keep the checkmark in
+                "Kernel Objects" during installing CUDA</b>.</p>
               <StepImage src="/cuda-toolkit-12-3-download-commands.png" caption="Preview of CUDA Toolkit 12.3 download commands for WSL-Ubuntu" />
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the CUDA Toolkit properly.
+                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the CUDA Toolkit properly. If you face 
+                  any issues related to CUDA dependency, then quickly go through step 12 where I have explained how to install the CUDA dependencies properly.
                 </AlertDescription>
               </Alert>
             </StepSection>
 
-            <StepSection id="step-13" stepNumber={13} title="Add path to shell profile for CUDA">
-              <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
-              </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
-              </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
-            </StepSection>
+            
 
             <StepSection id="step-14" stepNumber={14} title="nvcc version">
               <p className="text-muted-foreground">
