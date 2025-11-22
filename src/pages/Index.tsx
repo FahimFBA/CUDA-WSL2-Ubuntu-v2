@@ -322,21 +322,42 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-12" stepNumber={12} title="Install CUDA dependencies">
+            <StepSection id="step-12" stepNumber={12} title="Step 12: CUDA Toolkit">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Tensorflow GPU is very picky about the CUDA version. Therefore, we need to install a specific version of CUDA Toolkit that is compatible with the TensorFlow version we are going to install.
+                To understand exactly which CUDA version is compatible with which TensorFlow version, you can check the official TensorFlow GPU support matrix{" "}
+                <a
+                  href="https://www.tensorflow.org/install/pip"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  here
+                </a>.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
-              <p className="text-muted-foreground">
-                Test GPU access with the following command:
+              <StepImage src="/tensorflow-gpu-support-official-docs.png" caption="Preview of TensorFlow GPU support in official docs" />
+              <p>When I am writing this article, Tensorflow GPU is instructing to have CUDA Toolkit 12.3. Therefore, I will ensure that I install exactly that version.
+                You can simply click on that version link in the official docs and it will redirect you to the official Nvidia CUDA Toolkit download page.
+                However, if the link gets updated in the future, you can always search for "Nvidia CUDA Toolkit" on Google to find the latest version.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
+              <StepImage src="/nvidia-cuda-toolkit-official-website.png" caption="Preview of Nvidia CUDA Toolkit official website" />
+              <p>As Tensorflow GPU is asking exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
+
+              <p>In the CUDA Toolkit download page, make sure to choose the operating system as <b>Linux</b>, Architecture as <b>x86_64</b>, 
+              Distribution as <b>WSL-Ubuntu</b>, Version as <b>2.0</b> and the Installer type as <b>runfile(local)</b>.</p>
               <Alert>
                 <AlertTriangle className="h-4 w-4" />
                 <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
+                  As we are using Ubuntu in our WSL2, you can also choose Ubuntu as your operating system. However, I prefer to choose WSL-Ubuntu for better compatibility.
+                </AlertDescription>
+              </Alert>
+              <StepImage src="/cuda-toolkit-12-3-wsl-ubuntu.png" caption="Preview of CUDA Toolkit 12.3 download page for WSL-Ubuntu" />
+              <p>After selecting those, it will give you the download commands. You have to apply them sequentially.</p>
+              <StepImage src="/cuda-toolkit-12-3-download-commands.png" caption="Preview of CUDA Toolkit 12.3 download commands for WSL-Ubuntu" />
+              <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription>
+                  Make sure to copy and paste the commands one by one in your WSL Ubuntu terminal to download and install the CUDA Toolkit properly.
                 </AlertDescription>
               </Alert>
             </StepSection>
