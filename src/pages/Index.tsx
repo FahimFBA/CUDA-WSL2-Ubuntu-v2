@@ -503,6 +503,27 @@ const Index = () => {
               <StepImage src="/pytorch-gpu-installation.png" caption="Preview of PyTorch GPU installation in WSL Ubuntu terminal" />
             </StepSection>
 
+            <StepSection id="step-20" stepNumber={20} title="Step 20: Check PyTorch GPU">
+              <p className="text-muted-foreground">
+                After installing PyTorch GPU, verify that it is working properly with GPU support.
+                Open a Python shell in your Ubuntu terminal and run the following commands:
+              </p>
+
+              <CodeBlock code={`python3 - << 'EOF'\nimport torch\nprint(torch.cuda.is_available())\nprint(torch.cuda.device_count())\nprint(torch.cuda.current_device())\nprint(torch.cuda.device(0))\nprint(torch.cuda.get_device_name(0))\nEOF`} />
+              
+              <p>
+                The output should look similar to the screenshot, showing:
+                <ul className="list-disc ml-6">
+                  <li><b>True</b> - GPU is available for PyTorch</li>
+                  <li><b>1</b> - Number of detected CUDA devices</li>
+                  <li><b>0</b> - Index of the current active CUDA device</li>
+                  <li>A device object representation</li>
+                  <li><b>NVIDIA GeForce RTX 3060</b> (or your GPU name)</li>
+                </ul>
+              </p>
+              <StepImage src="/pytorch-gpu-check.png" caption="Preview of PyTorch GPU check in WSL Ubuntu terminal" />
+            </StepSection>
+
             <section id="troubleshooting" className="scroll-mt-8">
               <Card className="p-6 md:p-8">
                 <h2 className="mb-6 text-2xl font-bold md:text-3xl">Troubleshooting</h2>
