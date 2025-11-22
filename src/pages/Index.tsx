@@ -510,7 +510,7 @@ const Index = () => {
               </p>
 
               <CodeBlock code={`python3 - << 'EOF'\nimport torch\nprint(torch.cuda.is_available())\nprint(torch.cuda.device_count())\nprint(torch.cuda.current_device())\nprint(torch.cuda.device(0))\nprint(torch.cuda.get_device_name(0))\nEOF`} />
-              
+
               <p>
                 The output should look similar to the screenshot, showing:
                 <ul className="list-disc ml-6">
@@ -522,6 +522,49 @@ const Index = () => {
                 </ul>
               </p>
               <StepImage src="/pytorch-gpu-check.png" caption="Preview of PyTorch GPU check in WSL Ubuntu terminal" />
+            </StepSection>
+
+            <StepSection id="step-21" stepNumber={21} title="Step 21: Check PyTorch & Tensorflow GPU inside Jupyter Notebook">
+              <p className="text-muted-foreground">
+                Now that the environment is fully configured, we will verify GPU support directly inside <b>Jupyter Notebook</b>. This ensures both PyTorch and TensorFlow can successfully detect and use your GPU.
+              </p>
+
+              <h3 className="text-lg font-semibold mt-6">1. Test PyTorch GPU</h3>
+              <p className="text-muted-foreground">Create a new Jupyter Notebook and run the following commands one by one:</p>
+
+              <CodeBlock code={`import torch
+
+print(torch.cuda.is_available())
+print(torch.cuda.device_count())
+print(torch.cuda.current_device())
+print(torch.cuda.device(0))
+print(torch.cuda.get_device_name(0))`} />
+
+              <p className="text-muted-foreground">If everything is configured correctly, you will see your GPU (e.g., <b>NVIDIA GeForce RTX 3060</b>) detected properly:</p>
+
+              <StepImage src="/jupyter-pytorch-gpu-check.png" caption="Preview of PyTorch GPU check inside Jupyter Notebook" />
+
+              <h3 className="text-lg font-semibold mt-6">2. Test TensorFlow GPU</h3>
+              <p className="text-muted-foreground">Next, run the following code to check whether TensorFlow detects your GPU:</p>
+
+              <CodeBlock code={`import tensorflow as tf
+
+print(tf.config.list_physical_devices('GPU'))`} />
+
+              <p className="text-muted-foreground">You can also check the number of GPUs detected:</p>
+
+              <CodeBlock code={`print("Num GPUs Available:", len(tf.config.list_physical_devices('GPU')))`} />
+
+              <p className="text-muted-foreground">Finally, run TensorFlow’s built-in GPU validation (warnings are normal):</p>
+
+              <CodeBlock code={`import tensorflow as tf
+
+assert tf.test.is_gpu_available()
+assert tf.test.is_built_with_cuda()`} />
+
+              <StepImage src="/jupyter-tensorflow-gpu-check.png" caption="TensorFlow GPU initialization and CUDA validation output" />
+
+              <p className="text-muted-foreground mt-4">If TensorFlow logs show your GPU model (such as <b>RTX 3060</b>), then TensorFlow GPU is successfully installed and fully working inside Jupyter Notebook.</p>
             </StepSection>
 
             <section id="troubleshooting" className="scroll-mt-8">
