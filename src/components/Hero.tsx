@@ -12,15 +12,13 @@ export const Hero = () => {
           <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl lg:text-2xl">
             Complete guide to make Windows 11 fully compatible for Machine Learning using CUDA and Nvidia GPU
           </p>
+
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="w-full sm:w-auto"
-              asChild
-            >
+
+            <Button size="lg" variant="secondary" className="w-full sm:w-auto" asChild>
               <a href="#getting-started">Get Started</a>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
@@ -37,6 +35,23 @@ export const Hero = () => {
                 View on GitHub
               </a>
             </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto border-red-400/50 bg-red-500/20 text-red-50 backdrop-blur-sm hover:bg-red-500/30 hover:border-red-300 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-red-500/30"
+              asChild
+            >
+              <a
+                href="https://youtu.be/qOJ49nkU4rY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                🎥 Watch Video
+              </a>
+            </Button>
+
           </div>
         </div>
       </div>
