@@ -286,7 +286,7 @@ const Index = () => {
               <p>Make sure that you accepts the terms of service of Conda.</p>
               <StepImage src="/jupyter-ipykernel-installation.png" caption="Preview of Jupyter and Ipykernel installation in WSL Ubuntu terminal" />
               <p className="text-muted-foreground">
-                Now, I will create a separate conda environment for TensorFlow and PyTorch GPU both. 
+                Now, I will create a separate conda environment for TensorFlow and PyTorch GPU both.
                 You can directly install them in the base environment or in any other environment as per your preference.
                 I am not specifying any specific python version while creating the environment. It will automatically install the latest stable version of Python.
               </p>
@@ -300,23 +300,26 @@ const Index = () => {
               <CodeBlock code="conda env list" />
             </StepSection>
 
-            <StepSection id="step-11" stepNumber={11} title="CUDA Toolkit">
+            <StepSection id="step-11" stepNumber={11} title="Step 11: Nvidia Driver">
               <p className="text-muted-foreground">
-                Verify that CUDA is properly installed by checking the version:
+                Ensure that you have the latest Nvidia drivers installed on Windows.
+                WSL2 uses the Windows driver, so no separate driver installation is needed in Ubuntu.
+                You can download the latest drivers from the{" "}
+                <a
+                  href="https://www.nvidia.com/Download/index.aspx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline hover:text-blue-800"
+                >
+                  official Nvidia website
+                </a>.
               </p>
-              <CodeBlock code="nvcc --version" />
-              <ImagePlaceholder caption="NVCC version output" />
+              <StepImage src="/nvidia-driver-download.png" caption="Preview of Nvidia driver download page" />
               <p className="text-muted-foreground">
-                Test GPU access with the following command:
+                If you are just installing the latest GPU driver, then after installing the drivers, restart your computer to ensure the changes take effect.
+                You can either use GeForce Game Ready Driver or NVIDIA Studio Driver. However, I recommend to use the Studio Driver for better stability with
+                creative and ML applications.
               </p>
-              <CodeBlock code="nvidia-smi" />
-              <ImagePlaceholder caption="nvidia-smi output showing GPU information" />
-              <Alert>
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription>
-                  If you see your GPU information, congratulations! Your setup is complete and ready for ML workloads.
-                </AlertDescription>
-              </Alert>
             </StepSection>
 
             <StepSection id="step-12" stepNumber={12} title="Install CUDA dependencies">
