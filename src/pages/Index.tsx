@@ -571,30 +571,97 @@ assert tf.test.is_built_with_cuda()`} />
               <Card className="p-6 md:p-8">
                 <h2 className="mb-6 text-2xl font-bold md:text-3xl">Troubleshooting</h2>
                 <div className="space-y-6">
+
                   <div>
                     <h3 className="mb-2 font-semibold">WSL2 not starting</h3>
-                    <p className="mb-2 text-sm text-muted-foreground">
-                      Make sure virtualization is enabled in your BIOS settings. Check with:
-                    </p>
+                    <p className="mb-2 text-sm text-muted-foreground">Make sure virtualization is enabled in your BIOS settings. Check with:</p>
                     <CodeBlock code="systeminfo | find &quot;Hyper-V&quot;" />
                   </div>
+
                   <div>
                     <h3 className="mb-2 font-semibold">CUDA not found after installation</h3>
-                    <p className="mb-2 text-sm text-muted-foreground">
-                      Verify that the environment variables are correctly set. Run:
-                    </p>
+                    <p className="mb-2 text-sm text-muted-foreground">Verify that the environment variables are correctly set. Run:</p>
                     <CodeBlock code="echo $PATH" />
                   </div>
+
                   <div>
                     <h3 className="mb-2 font-semibold">GPU not detected</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Ensure you have the latest Nvidia drivers installed on Windows.
-                      WSL2 uses the Windows driver, so no separate driver installation is needed in Ubuntu.
-                    </p>
+                    <p className="text-sm text-muted-foreground">Ensure you have the latest Nvidia drivers installed on Windows. WSL2 uses the Windows driver, so no separate driver installation is needed in Ubuntu.</p>
                   </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">Conda environment not showing inside Jupyter</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">You must install ipykernel inside the target environment:</p>
+                    <CodeBlock code="conda activate <env>\npython -m ipykernel install --user --name <env> --display-name &quot;Python (<env>)&quot;" />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">TensorFlow not detecting GPU</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Check compatible CUDA + cuDNN versions. Confirm TensorFlow sees the GPU:</p>
+                    <CodeBlock code="python3 -c &quot;import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))&quot;" />
+                    <p className="text-sm text-muted-foreground mt-2">If blank, your CUDA version does not match the TensorFlow build.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">PyTorch not detecting GPU</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Test with:</p>
+                    <CodeBlock code="python3 -c &quot;import torch; print(torch.cuda.is_available())&quot;" />
+                    <p className="text-sm text-muted-foreground mt-2">If <b>False</b>, reinstall PyTorch with the correct CUDA version.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">nvcc works but TensorFlow/PyTorch cannot use GPU</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">This means CUDA Toolkit is fine but libraries are mismatched. Reinstall the framework with proper CUDA version.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">Jupyter Notebook using CPU instead of GPU</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Your notebook kernel is NOT running inside the correct conda environment. Install kernel again:</p>
+                    <CodeBlock code="conda activate ml\npython -m ipykernel install --user --name ml --display-name &quot;Python (ml)&quot;" />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">WSL GPU not exposed</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Check if WSL has GPU support enabled:</p>
+                    <CodeBlock code="ls /dev/dxg" />
+                    <p className="text-sm text-muted-foreground mt-2">If not found, update Windows + WSL:</p>
+                    <CodeBlock code="wsl --update" />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">CUDNN errors when loading TensorFlow</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Often caused by old cache files. Clear and reinstall:</p>
+                    <CodeBlock code="sudo rm -rf ~/.nv" />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">libcuda.so not found</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Force link to Windows CUDA driver:</p>
+                    <CodeBlock code="sudo ln -s /usr/lib/wsl/lib/libcuda.so /usr/lib/libcuda.so" />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">WSL freezes during GPU training</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Restrict GPU memory usage in TensorFlow:</p>
+                    <CodeBlock code={`python3 - << 'EOF'\nimport tensorflow as tf\ngpus = tf.config.experimental.list_physical_devices('GPU')\ntf.config.experimental.set_memory_growth(gpus[0], True)\nEOF`} />
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">“Illegal instruction (core dumped)” on TensorFlow</h3>
+                    <p className="text-sm text-muted-foreground">Happens with incompatible AVX instructions. Update TensorFlow or use a newer Python version.</p>
+                  </div>
+
+                  <div>
+                    <h3 className="mb-2 font-semibold">“CUDA driver version too old” error</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">Update your GPU driver from Nvidia:</p>
+                    <CodeBlock code="nvidia-smi" />
+                    <p className="text-sm text-muted-foreground mt-2">If it shows an old version, install the latest Studio driver on Windows.</p>
+                  </div>
+
                 </div>
               </Card>
             </section>
+            
           </div>
 
           {/* Sidebar */}
