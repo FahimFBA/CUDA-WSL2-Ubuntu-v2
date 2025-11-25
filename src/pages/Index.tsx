@@ -61,10 +61,10 @@ const Index = () => {
 
             <StepSection id="step-2" stepNumber={2} title="Windows PowerShell (Latest & Greatest)">
               <p className="text-muted-foreground">
-                Windows PowerShell is a modern and updated command line shell from Microsoft. You can use some Linux specific commands
-                directly onto it. It comes with command suggestions built in. You can download it from the{" "}
+                Windows PowerShell is a modern and updated command-line shell from Microsoft. You can use some Linux specific commands
+                directly on it. It comes with built-in command suggestions. You can download it from the{" "}
                 <a
-                  href="https://github.com/PowerShell/PowerShell/releases/tag/v7.5.4"
+                  href="https://github.com/PowerShell/PowerShell/releases/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-600 underline hover:text-blue-800"
