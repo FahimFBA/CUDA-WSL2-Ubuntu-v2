@@ -335,7 +335,7 @@ const Index = () => {
 
             <StepSection id="step-13" stepNumber={12} title="Step 13: CUDA Toolkit">
               <p className="text-muted-foreground">
-                Tensorflow GPU is very picky about the CUDA version. Therefore, we need to install a specific version of CUDA Toolkit that is compatible with the TensorFlow version we are going to install.
+                TensorFlow GPU is very picky about the CUDA version. Therefore, we need to install a specific version of CUDA Toolkit that is compatible with the TensorFlow version we are going to install.
                 To understand exactly which CUDA version is compatible with which TensorFlow version, you can check the official TensorFlow GPU support matrix{" "}
                 <a
                   href="https://www.tensorflow.org/install/pip"
@@ -347,12 +347,12 @@ const Index = () => {
                 </a>.
               </p>
               <StepImage src="/tensorflow-gpu-support-official-docs.png" caption="Preview of TensorFlow GPU support in official docs" />
-              <p>When I am writing this article, Tensorflow GPU is instructing to have CUDA Toolkit 12.3. Therefore, I will ensure that I install exactly that version.
+              <p>When I am writing this article, TensorFlow GPU is instructing to have CUDA Toolkit 12.3. Therefore, I will ensure that I install exactly that version.
                 You can simply click on that version link in the official docs and it will redirect you to the official Nvidia CUDA Toolkit download page.
                 However, if the link gets updated in the future, you can always search for "Nvidia CUDA Toolkit" on Google to find the latest version.
               </p>
               <StepImage src="/nvidia-cuda-toolkit-official-website.png" caption="Preview of Nvidia CUDA Toolkit official website" />
-              <p>As Tensorflow GPU is asking exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
+              <p>As TensorFlow GPU is asking exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
 
               <p>In the CUDA Toolkit download page, make sure to choose the operating system as <b>Linux</b>, Architecture as <b>x86_64</b>,
                 Distribution as <b>WSL-Ubuntu</b>, Version as <b>2.0</b> and the Installer type as <b>runfile(local)</b>.</p>
@@ -414,7 +414,7 @@ const Index = () => {
             <StepSection id="step-16" stepNumber={16} title="Step 16: cuDNN SDK">
               <p className="text-muted-foreground">
                 Download and install the cuDNN SDK for CUDA from the official Nvidia website. Here's an interesting thing about cuDNN:
-                Even though Tensorflow GPU suggests a specific cuDNN version, it is often compatible with multiple versions.
+                Even though TensorFlow GPU suggests a specific cuDNN version, it is often compatible with multiple versions.
                 Therefore, I recommend downloading the latest cuDNN version that is compatible with your installed CUDA version.
                 You can find the cuDNN download page{" "}
                 <a
@@ -439,7 +439,7 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-17" stepNumber={17} title="Step 17: Tensorflow GPU">
+            <StepSection id="step-17" stepNumber={17} title="Step 17: TensorFlow GPU">
               <p className="text-muted-foreground">
                 Now, we are going to install TensorFlow GPU in our conda environment. Make sure that you have activated the conda environment where you want to install it.
                 For me, I am going to install it in my previously created <b>ml</b> environment.
@@ -455,12 +455,12 @@ const Index = () => {
               <StepImage src="/conda-activate-ml-environment.png" caption="Preview of activating 'ml' conda environment in WSL Ubuntu terminal" />
               <p>I will install ipykernel and jupyter in this new environment.</p>
               <CodeBlock code="conda install jupyter ipykernel -y" />
-              <p>Now, to install Tensorflow GPU, I will simply use the following command.</p>
+              <p>Now, to install TensorFlow GPU, I will simply use the following command.</p>
               <CodeBlock code="pip install tensorflow[and-cuda]" />
               <p>It might take a couple of minutes depending on the internet speed you have. Please have patience and wait for it to finish the installation.</p>
             </StepSection>
 
-            <StepSection id="step-18" stepNumber={18} title="Step 18: Check Tensorflow GPU">
+            <StepSection id="step-18" stepNumber={18} title="Step 18: Check TensorFlow GPU">
               <p className="text-muted-foreground">
                 After installing TensorFlow GPU, we need to verify that it is working properly with GPU support.
                 Open a Python shell in your Ubuntu terminal and run the following commands:
@@ -524,7 +524,7 @@ const Index = () => {
               <StepImage src="/pytorch-gpu-check.png" caption="Preview of PyTorch GPU check in WSL Ubuntu terminal" />
             </StepSection>
 
-            <StepSection id="step-21" stepNumber={21} title="Step 21: Check PyTorch & Tensorflow GPU inside Jupyter Notebook">
+            <StepSection id="step-21" stepNumber={21} title="Step 21: Check PyTorch & TensorFlow GPU inside Jupyter Notebook">
               <p className="text-muted-foreground">
                 Now that the environment is fully configured, we will verify GPU support directly inside <b>Jupyter Notebook</b>. This ensures both PyTorch and TensorFlow can successfully detect and use your GPU.
               </p>
