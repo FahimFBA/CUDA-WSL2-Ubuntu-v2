@@ -276,13 +276,13 @@ const Index = () => {
                 It provides an interactive environment for coding and data analysis.
                 We will install Jupyter Notebook and Ipykernel to run Jupyter notebooks in our conda environment.
                 We will do that in all conda environments starting with the <b>base</b> environment.
-                It also help us to keep the conda environment kernel inside Jupyter Notebook.
+                It also helps us to keep the conda environment kernel inside Jupyter Notebook.
               </p>
-              <p>First, make sure that you are in the base conda environment. You will see <b>(base)</b> in the left side of the terminal.</p>
+              <p>First, make sure that you are in the base conda environment. You will see <b>(base)</b> on the left side of the terminal.</p>
               <StepImage src="/conda-base-environment.png" caption="Preview of conda base environment in WSL Ubuntu terminal" />
               <p>Now install Jupyter and Ipykernel both by applying the following command.</p>
               <CodeBlock code="conda install jupyter ipykernel -y" />
-              <p>Make sure that you accepts the terms of service of Conda.</p>
+              <p>Make sure that you accept the terms of service of Conda.</p>
               <StepImage src="/jupyter-ipykernel-installation.png" caption="Preview of Jupyter and Ipykernel installation in WSL Ubuntu terminal" />
               <p className="text-muted-foreground">
                 Now, I will create a separate conda environment for TensorFlow and PyTorch GPU both.
@@ -295,7 +295,7 @@ const Index = () => {
               <CodeBlock code="conda activate <conda-env-name>" />
               <p>For example, if I want to activate my newly created <b>ml</b> environment, I will use the following command.</p>
               <CodeBlock code="conda activate ml" />
-              <p>If you are not sure which conda environments are installed in your system, you can check all available and installed conda environment in your system by running the following command.</p>
+              <p>If you are not sure which conda environments are installed in your system, you can check all available and installed conda environments in your system by running the following command.</p>
               <CodeBlock code="conda env list" />
             </StepSection>
 
