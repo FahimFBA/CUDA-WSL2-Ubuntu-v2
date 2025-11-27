@@ -316,7 +316,7 @@ const Index = () => {
               <StepImage src="/nvidia-driver-download.png" caption="Preview of Nvidia driver download page" />
               <p className="text-muted-foreground">
                 If you are just installing the latest GPU driver, then after installing the drivers, restart your computer to ensure the changes take effect.
-                You can either use GeForce Game Ready Driver or NVIDIA Studio Driver. However, I recommend to use the Studio Driver for better stability with
+                You can either use the GeForce Game Ready Driver or the NVIDIA Studio Driver. However, I recommend using the Studio Driver for better stability with
                 creative and ML applications.
               </p>
             </StepSection>
