@@ -412,7 +412,7 @@ const Index = () => {
 
             <StepSection id="step-16" stepNumber={16} title="Step 16: cuDNN SDK">
               <p className="text-muted-foreground">
-                Download and install the cuDNN SDK for CUDA from the official Nvidia website. Here's an interesting thing about cuDNN:
+                Download and install the cuDNN SDK for CUDA from the official Nvidia website. Here is an interesting thing about cuDNN:
                 Even though TensorFlow GPU suggests a specific cuDNN version, it is often compatible with multiple versions.
                 Therefore, I recommend downloading the latest cuDNN version that is compatible with your installed CUDA version.
                 You can find the cuDNN download page{" "}
