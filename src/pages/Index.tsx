@@ -346,12 +346,12 @@ const Index = () => {
                 </a>.
               </p>
               <StepImage src="/tensorflow-gpu-support-official-docs.png" caption="Preview of TensorFlow GPU support in official docs" />
-              <p>When I am writing this article, TensorFlow GPU is instructing to have CUDA Toolkit 12.3. Therefore, I will ensure that I install exactly that version.
+              <p>When I am writing this article, the TensorFlow GPU documentation is instructing to have CUDA Toolkit 12.3. Therefore, I will ensure that I install exactly that version.
                 You can simply click on that version link in the official docs and it will redirect you to the official Nvidia CUDA Toolkit download page.
                 However, if the link gets updated in the future, you can always search for "Nvidia CUDA Toolkit" on Google to find the latest version.
               </p>
               <StepImage src="/nvidia-cuda-toolkit-official-website.png" caption="Preview of Nvidia CUDA Toolkit official website" />
-              <p>As TensorFlow GPU is asking exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
+              <p>As TensorFlow GPU is asking for exact <b>Version 12.3</b>, I will select version <b>12.3.0</b> exactly!</p>
 
               <p>In the CUDA Toolkit download page, make sure to choose the operating system as <b>Linux</b>, Architecture as <b>x86_64</b>,
                 Distribution as <b>WSL-Ubuntu</b>, Version as <b>2.0</b> and the Installer type as <b>runfile(local)</b>.</p>
@@ -390,7 +390,7 @@ const Index = () => {
               <CodeBlock code="echo 'export PATH=/usr/local/cuda-12.3/bin:$PATH' >> ~/.bashrc" />
               <p>You have to use the updated path where you installed it. Your terminal will show it after installing the CUDA.</p>
               <StepImage src="/cuda-installation-path.png" caption="Preview of CUDA installation path in WSL Ubuntu terminal" />
-              <p>Now, you need to add the path inside the Library path. Just use the exact path where you installed CUDA. Your temrinal will list the path properly.</p>
+              <p>Now, you need to add the path inside the Library path. Just use the exact path where you installed CUDA. Your terminal will list the path properly.</p>
               <CodeBlock code="echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.3/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc" />
               <StepImage src="/cuda-library-path.png" caption="Preview of CUDA library path in WSL Ubuntu terminal" />
               <p className="text-muted-foreground">
