@@ -80,8 +80,8 @@ const Index = () => {
 
             <StepSection id="step-3" stepNumber={3} title="Configure Windows Terminal">
               <p className="text-muted-foreground">
-                Now we'll need to configure our Windows Terminal to use PowerShell as the default shell. It is optional and you might skip this step.
-                However, I recommend you to do it for a better experience.
+                Now we will need to configure our Windows Terminal to use PowerShell as the default shell. It is optional and you might skip this step.
+                However, I recommend doing it for a better experience.
               </p>
               <p className="text-muted-foreground">
                 Open Windows Terminal. Click on the down arrow icon in the title bar and select "Settings".
@@ -94,13 +94,13 @@ const Index = () => {
                 Now for the "Default terminal application", select "Windows Terminal".
               </p>
               <p className="text-muted-foreground">
-                By default Windows PowerShell always shows the version number in the title bar. If you want to disable it, select the "PowerShell" profile from the left sidebar.
-                Click on the "Command Line" field and add a <code className="bg-muted px-1 py-0.5 rounded">--nologo</code> argument at the end of the command. After this, the
+                By default, Windows PowerShell always shows the version number in the title bar. If you want to disable it, select the "PowerShell" profile from the left sidebar.
+                Click on the "Command Line" field and add an <code className="bg-muted px-1 py-0.5 rounded">--nologo</code> argument at the end of the command. After this, the
                 line becomes <code className="bg-muted px-1 py-0.5 rounded">"C:\Program Files\PowerShell\7\pwsh.exe" --nologo</code>.
               </p>
               <StepImage src="/remove-ver-number-in-powershell.png" caption="Preview of Windows PowerShell --nologo setting" />
               <p className="text-muted-foreground">
-                If you don't use other shells frequently and want to hide them in the dropdown, then you need to select those profiles one by one from the left sidebar.
+                If you do not use other shells frequently and want to hide them in the dropdown, then you need to select those profiles one by one from the left sidebar.
                 Scroll down to the bottm and find the "Hide profile from dropdown" toggle and enable it. It will hide that specific shell from the dropdown menu.
                 For example, I am hiding the <b>Azure Cloud Shell</b> profile as I don't use it frequently.
               </p>
