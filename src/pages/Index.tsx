@@ -258,7 +258,7 @@ const Index = () => {
               <StepImage src="/miniconda-installation-wsl.png" caption="Preview of Miniconda installation in WSL Ubuntu terminal" />
               <p>Make sure to choose the initialization option properly. I prefer to keep the conda env active whenever I open a new shell. Therefore, I chose "Yes".</p>
               <StepImage src="/conda-initialization-option.png" caption="Preview of Miniconda initialization option during installation" />
-              <p>Make sure that the installation succeed without any error.</p>
+              <p>Make sure that the installation succeeds without any errors.</p>
               <StepImage src="/miniconda-installation-complete.png" caption="Preview of successful Miniconda installation in WSL Ubuntu terminal" />
               <p>For the changes to take effect, you can close and reopen the current shell. However, you can also do that without closing and reopening the shell by applying the command below.</p>
               <CodeBlock code="source ~/.bashrc" />
