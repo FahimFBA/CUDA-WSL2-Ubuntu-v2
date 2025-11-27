@@ -209,7 +209,7 @@ const Index = () => {
               <StepImage src="/wsl-ubuntu-install.png" caption="Preview of Ubuntu installation in Windows PowerShell" />
               <p>It also comes with a nice GUI management tool for WSL.</p>
               <StepImage src="/wsl-gui-config.png" caption="Preview of WSL GUI management tool" />
-              <p>You can configure a lot of stuff in it including restricting core, RAM, disk space and a lot of Specification from the settings GUI window.</p>
+              <p>You can configure a lot of stuff in it including restricting core, RAM, disk space and a lot of specifications from the settings GUI window.</p>
               <StepImage src="/memory-and-processor-config-wsl.png" caption="Preview of WSL GUI settings window (Memory & Processor)" />
             </StepSection>
 
