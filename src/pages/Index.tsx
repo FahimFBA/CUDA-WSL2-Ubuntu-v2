@@ -323,12 +323,12 @@ const Index = () => {
 
             <StepSection id="step-12" stepNumber={13} title="Step 12: Install CUDA dependencies">
               <p className="text-muted-foreground">
-                You might face some issues if you don't have the CUDA dependencies installed properly.
+                You might face some issues if you do not have the CUDA dependencies installed properly.
                 Therefore, it is recommended to install the required dependencies before proceeding further.
               </p>
               <CodeBlock code="sudo apt install gcc g++ build-essential" />
               <p>
-                After installing the dependencies, you can proceed to verify the CUDA installation if you got any issues earlier.
+                After installing the dependencies, you can proceed to verify the CUDA installation if you had any issues earlier.
               </p>
             </StepSection>
 
