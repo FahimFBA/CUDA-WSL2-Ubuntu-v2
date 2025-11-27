@@ -492,7 +492,7 @@ const Index = () => {
               <p>
                 Make sure to select PyTorch Build as the latest <b>Stable</b> one, Your OS as <b>Linux</b>, Package as <b>Pip</b>, Language as <b>Python</b>.
                 For the Compute Platform, select the CUDA version that matches your installed CUDA Toolkit. For me, it is <b>CUDA 12.3</b>. But, if you
-                can't find the exact one then chose the closest. As CUDA 12.3 is not available for me now, I am choosing <b>CUDA 12.6</b>.
+                can not find the exact one then choose the closest. As CUDA 12.3 is not available for me now, I am choosing <b>CUDA 12.6</b>.
                 After selecting those, it will give you the installation command. You have to apply it in your WSL Ubuntu terminal.
               </p>
               <StepImage src="/pytorch-installation-command-generator.png" caption="Preview of PyTorch installation command generator" />
