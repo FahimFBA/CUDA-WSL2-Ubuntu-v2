@@ -112,8 +112,7 @@ const Index = () => {
 
             <StepSection id="step-4" stepNumber={4} title="Configuration of my computer">
               <p className="text-muted-foreground">
-                I think that it's better to let you know my current computer's configuration so that you can have a clear idea about which setup is getting used to test this guide.
-                Here are the details:
+                I think it is better to let you know my current computer's configuration so you can have a clear idea of which setup is being used to test this guide. Here are the details:
               </p>
 
               <div className="mt-4">
@@ -139,7 +138,7 @@ const Index = () => {
                     </TableRow>
                     <TableRow>
                       <TableCell className="font-medium">GPU</TableCell>
-                      <TableCell>NVIDIA RTX 3060 12GB GDDR6</TableCell>
+                      <TableCell>NVIDIA GeForce RTX 3060 12GB GDDR6</TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell className="font-medium">Operating System</TableCell>
@@ -661,7 +660,7 @@ assert tf.test.is_built_with_cuda()`} />
                 </div>
               </Card>
             </section>
-            
+
           </div>
 
           {/* Sidebar */}
