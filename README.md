@@ -7,7 +7,7 @@ A comprehensive, step-by-step web guide to set up CUDA on Windows Subsystem for 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?logo=typescript)
 ![Vite](https://img.shields.io/badge/Vite-5.4.19-646CFF?logo=vite)
 
-## 🎯 Overview
+## Overview
 
 This project provides an interactive, beautifully designed web application that guides users through the complete process of setting up CUDA on WSL2 with Ubuntu. The guide covers everything from initial Windows Terminal configuration to verifying GPU support in TensorFlow and PyTorch.
 
@@ -21,17 +21,17 @@ This project provides an interactive, beautifully designed web application that 
 - Verifying GPU acceleration in Jupyter Notebooks
 - Troubleshooting common issues
 
-## ✨ Features
+## Features
 
-- 📖 **Comprehensive Step-by-Step Guide** - 21 detailed steps covering the entire setup process
-- 🖼️ **Visual Instructions** - Screenshots and images for each step
-- 💻 **Code Examples** - Ready-to-use commands and code snippets
-- 🔍 **Troubleshooting Section** - Solutions to common problems
-- 📱 **Responsive Design** - Works on desktop, tablet, and mobile devices
-- 🎨 **Modern UI** - Built with shadcn/ui and Tailwind CSS
-- 🔗 **Table of Contents** - Easy navigation through the guide
+- **Comprehensive Step-by-Step Guide** - 21 detailed steps covering the entire setup process
+- **Visual Instructions** - Screenshots and images for each step
+- **Code Examples** - Ready-to-use commands and code snippets
+- **Troubleshooting Section** - Solutions to common problems
+- **Responsive Design** - Works on desktop, tablet, and mobile devices
+- **Modern UI** - Built with shadcn/ui and Tailwind CSS
+- **Table of Contents** - Easy navigation through the guide
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -98,7 +98,7 @@ yarn preview
 bun run preview
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 CUDA-WSL2-Ubuntu-v2/
@@ -125,7 +125,7 @@ CUDA-WSL2-Ubuntu-v2/
 └── tsconfig.json         # TypeScript configuration
 ```
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **React 18.3.1** - UI library
 - **TypeScript 5.8.3** - Type safety
@@ -136,7 +136,7 @@ CUDA-WSL2-Ubuntu-v2/
 - **Lucide React** - Icon library
 - **Radix UI** - Unstyled, accessible component primitives
 
-## 📚 Guide Contents
+## Guide Contents
 
 The guide includes the following sections:
 
@@ -153,11 +153,11 @@ The guide includes the following sections:
 11. **Verification** - Testing GPU acceleration in Jupyter Notebooks
 12. **Troubleshooting** - Common issues and solutions
 
-## 🎥 Video Tutorial
+## Video Tutorial
 
 A video walkthrough is available on YouTube. Check the "Watch Video" button in the hero section of the application.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project:
 
@@ -176,7 +176,7 @@ Contributions are welcome! If you'd like to contribute to this project:
 - Translating the guide to other languages
 - Fixing bugs and issues
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 If you encounter issues while setting up the development environment:
 
@@ -187,18 +187,18 @@ If you encounter issues while setting up the development environment:
 
 For issues related to CUDA/WSL2 setup, refer to the troubleshooting section in the guide itself.
 
-## 📝 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - NVIDIA for CUDA Toolkit and cuDNN
 - Microsoft for WSL2
 - The open-source community for amazing tools and libraries
 - All contributors who help improve this guide
 
-## 📞 Support
+## Support
 
 If you have questions or need help:
 
@@ -210,11 +210,10 @@ If you have questions or need help:
   - [TensorFlow GPU Support](https://www.tensorflow.org/install/pip)
   - [PyTorch Installation](https://pytorch.org/get-started/locally/)
 
-## ⭐ Star History
+## Star History
 
 If you find this project helpful, please consider giving it a star on GitHub!
 
 ---
 
 **Made with ❤️ for the ML community**
-
