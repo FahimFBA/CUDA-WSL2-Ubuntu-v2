@@ -39,7 +39,7 @@ const Index = () => {
 
             <Prerequisites />
 
-            <StepSection id="step-1" stepNumber={1} title="Windows Terminal">
+            <StepSection id="step-1" stepNumber={1} title="Step 1: Windows Terminal">
               <p className="text-muted-foreground">
                 First, we need to ensure that we have Windows Terminal installed properly in our operating system.
                 It is the newest terminal application for users of command-line tools and shells like Command Prompt,
