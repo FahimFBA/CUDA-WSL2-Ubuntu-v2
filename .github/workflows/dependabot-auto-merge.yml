@@ -1,0 +1,54 @@
+name: "Dependabot: Auto-merge updates"
+
+on:
+  pull_request:
+    # optionally restrict to PRs from Dependabot
+    # you could also add more event types if needed
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      # add other build/lint/test steps as needed
+
+  auto-merge:
+    name: Auto-merge Dependabot PR
+    needs: [build]
+    runs-on: ubuntu-latest
+    # only run this for PRs created by Dependabot
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Install GitHub CLI
+        run: |
+          curl -sSfL https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+            gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) \
+            signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+            https://cli.github.com/packages stable main" | \
+            tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          apt update && apt install gh -y
+      - name: Approve PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Merge PR
+        run: gh pr merge --squash --auto "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
