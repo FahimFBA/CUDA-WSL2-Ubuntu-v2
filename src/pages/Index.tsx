@@ -59,7 +59,7 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-2" stepNumber={2} title="Windows PowerShell (Latest & Greatest)">
+            <StepSection id="step-2" stepNumber={2} title="Step 2: Windows PowerShell (Latest & Greatest)">
               <p className="text-muted-foreground">
                 Windows PowerShell is a modern and updated command-line shell from Microsoft. You can use some Linux specific commands
                 directly on it. It comes with built-in command suggestions. You can download it from the{" "}
@@ -78,7 +78,7 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-3" stepNumber={3} title="Configure Windows Terminal">
+            <StepSection id="step-3" stepNumber={3} title="Step 3: Configure Windows Terminal">
               <p className="text-muted-foreground">
                 Now we will need to configure our Windows Terminal to use PowerShell as the default shell. It is optional and you might skip this step.
                 However, I recommend doing it for a better experience.
@@ -110,7 +110,7 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-4" stepNumber={4} title="Configuration of my computer">
+            <StepSection id="step-4" stepNumber={4} title="Step 4: Configuration of my computer">
               <p className="text-muted-foreground">
                 I think it is better to let you know my current computer's configuration so you can have a clear idea of which setup is being used to test this guide. Here are the details:
               </p>
@@ -152,7 +152,7 @@ const Index = () => {
               </p>
             </StepSection>
 
-            <StepSection id="step-5" stepNumber={5} title="CPU Virtualization">
+            <StepSection id="step-5" stepNumber={5} title="Step 5: CPU Virtualization">
               <p className="text-muted-foreground">
                 As we are going to use the WSL2, we must ensure that the CPU virtualization is enabled.
                 To check whether virtualization is enabled or not from Windows, simply open the <b>Windows Task Manager</b>.
@@ -170,7 +170,7 @@ const Index = () => {
               </Alert>
             </StepSection>
 
-            <StepSection id="step-6" stepNumber={6} title="Install WSL2">
+            <StepSection id="step-6" stepNumber={6} title="Step 6: Install WSL2">
               <p className="text-muted-foreground">
                 Open the Windows Terminal or Windows PowerShell as an administrator. Run the following command to install WSL2 along with the latest Ubuntu LTS distribution:
               </p>
@@ -554,7 +554,7 @@ print(tf.config.list_physical_devices('GPU'))`} />
 
               <CodeBlock code={`print("Num GPUs Available:", len(tf.config.list_physical_devices('GPU')))`} />
 
-              <p className="text-muted-foreground">Finally, run TensorFlow’s built-in GPU validation (warnings are normal):</p>
+              <p className="text-muted-foreground">Finally, run TensorFlow's built-in GPU validation (warnings are normal):</p>
 
               <CodeBlock code={`import tensorflow as tf
 
